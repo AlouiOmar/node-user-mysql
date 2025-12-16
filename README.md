@@ -4,8 +4,9 @@ API REST construite avec Express.js, MySQL et architecture MVC pour gérer des s
 
 ## 📋 Table des matières
 
+- [Cloner le projet](#cloner-le-projet)
+- [Configuration de la base de données](#configuration-de-la-base-de-données)
 - [Installation](#installation)
-- [Configuration](#configuration)
 - [Base de données](#base-de-données)
 - [Démarrage](#démarrage)
 - [API Endpoints](#api-endpoints)
@@ -14,16 +15,27 @@ API REST construite avec Express.js, MySQL et architecture MVC pour gérer des s
 - [Exemples de requêtes](#exemples-de-requêtes)
 - [Gestion des erreurs](#gestion-des-erreurs)
 
-## 🚀 Installation
+## 📦 Cloner le projet
 
 ```bash
-# Installer les dépendances
-npm install
+git clone https://github.com/AlouiOmar/node-user-mysql.git
+cd node-user-mysql
 ```
 
-## ⚙️ Configuration
+## ⚙️ Configuration de la base de données
 
-Créez un fichier `.env` à la racine du projet avec les variables suivantes :
+- **1. Démarrer MySQL avec XAMPP ou WAMP**  
+  - Ouvrez **XAMPP** ou **WAMP**  
+  - Démarrez **Apache**  
+  - Démarrez **MySQL**
+
+- **2. Créer la base de données avec phpMyAdmin**  
+  - Ouvrez **phpMyAdmin** (`http://localhost/phpmyadmin`)  
+  - Cliquez sur **Nouvelle base de données**  
+  - Créez une base de données nommée : **`suggestions_db`**  
+  - Aucune table n'est nécessaire : elles seront créées **automatiquement** au démarrage du projet.
+
+- **3. Configurer la connexion dans le fichier `.env` à la racine du projet :**
 
 ```env
 DB_HOST=localhost
@@ -35,17 +47,21 @@ PORT=3000
 NODE_ENV=development
 ```
 
+## 🚀 Installation
+
+```bash
+# Installer les dépendances
+npm install
+```
+
 ## 🗄️ Base de données
 
 ### Création de la base de données
 
-Exécutez le script SQL fourni :
+Si vous avez suivi la section **Configuration de la base de données**, la base `suggestions_db` existe déjà.
+Les **tables seront créées automatiquement** au premier démarrage de l'application grâce aux modèles Sequelize/MySQL.
 
-```bash
-mysql -u root -p < database.sql
-```
-
-Ou importez le fichier `database.sql` dans votre client MySQL.
+> Optionnel : vous pouvez également importer manuellement le fichier `database.sql` via phpMyAdmin ou la ligne de commande MySQL si vous souhaitez pré-remplir la base.
 
 ### Structure des tables
 
